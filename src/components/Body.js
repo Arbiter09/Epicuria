@@ -1,5 +1,7 @@
 import React from 'react'
 import RestaurantCard from './RestaurantCard'
+import {restaurantList} from "../utils/mockData"
+
 
 const Body = () => {
   return (
@@ -8,8 +10,7 @@ const Body = () => {
             <h3>Search Bar</h3>
         </div>
         <div className='card-container'>
-        <RestaurantCard />
-        <RestaurantCard /><RestaurantCard /><RestaurantCard /><RestaurantCard /><RestaurantCard /><RestaurantCard /><RestaurantCard />
+        {restaurantList.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant}/> )}
         </div>
     </div>
   )

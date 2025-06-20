@@ -1,16 +1,24 @@
 import React from 'react'
+import { CDN_URL } from '../utils/constants';
 
-const RestaurantCard = () => {
+const RestaurantCard = ({resData}) => {
+
+  const {name,cloudinaryImageId,cuisines,costForTwo,avgRating,deliveryTime} = resData?.info;
+
   return (
     <div className='res-card-container'>
        <div>
-            <img className="restaurant-logo" src="https://static.vecteezy.com/system/resources/previews/021/769/098/non_2x/burger-logo-free-vector.jpg" />
+            <img className="restaurant-logo" src={
+          CDN_URL +
+          cloudinaryImageId
+        } />
        </div>
        <div className='res-info'>
-        <span>Burger King</span>
-        <span>Burgers, Pizza, Fries!</span>
-        <span>3.0 stars</span>
-        <span>40 minutes</span>
+        <span>{name}</span>
+        <span>{cuisines.join(", ")}</span>
+        <span>{avgRating} stars</span>
+        <span>{costForTwo}</span>
+        <span>{deliveryTime}</span>
        </div>
     </div>
   )
