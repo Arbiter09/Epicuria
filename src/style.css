@@ -46,6 +46,26 @@
   flex-wrap: wrap;
 }
 
+.top-rated-btn {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #333333;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  margin: 5px;
+}
+
+.top-rated-btn:hover {
+  background-color: #f8f8f8;
+  border-color: #999;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
 /* RESTAURANT CARD */
 .res-card-container {
   display: flex;
@@ -78,4 +98,26 @@
   gap: 5px;
   width: 100%;
   color: black;
+}
+
+/* SHIMMER */
+
+.btn-shimmer {
+  width: 230px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.card-container-shimmer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-shimmer {
+  width: 250px;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 5px;
 }
