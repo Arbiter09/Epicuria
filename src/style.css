@@ -66,6 +66,16 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.search-box {
+  padding: 5px 10px;
+  font-size: 20px;
+}
 /* RESTAURANT CARD */
 .res-card-container {
   display: flex;
