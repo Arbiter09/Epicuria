@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="logo-container">
-        <img className="company-logo" src={LOGO_URL} />
+        <Link to="/">
+          <img className="company-logo" src={LOGO_URL} />
+        </Link>
         <span>EPICURIA</span>
       </div>
       <div className="options-header">

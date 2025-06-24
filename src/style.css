@@ -32,6 +32,10 @@
     padding: 10px 20px;  /* padding around the container */
     align-items: center;
 }
+.options-header a {
+  color: black; /* or any color you prefer */
+  text-decoration: none;
+}
 
 .options-header span {
     margin: 0 10px;
@@ -44,6 +48,11 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.card-container a{
+   color: black; /* or any color you prefer */
+  text-decoration: none;
 }
 
 .top-rated-btn {
@@ -268,4 +277,146 @@
   flex-direction: column;
   gap: 24px;
 }
+/* Menu Section */
+.menu-section {
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 32px;
+  border: 1px solid #f3f4f6;
+}
 
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.menu-icon {
+  width: 32px;
+  height: 32px;
+  color: #f97316;
+}
+
+.menu-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Menu Item */
+.menu-item {
+  background: linear-gradient(135deg, white 0%, #f9fafb 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.menu-item-content {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.menu-item-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.menu-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.menu-item-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.veg-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veg-indicator.veg {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+
+.veg-indicator.non-veg {
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+
+.veg-icon {
+  width: 8px;
+  height: 8px;
+  color: white;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.item-description {
+  color: #6b7280;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.menu-item-image-container {
+  width: 192px;
+  flex-shrink: 0;
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 144px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
