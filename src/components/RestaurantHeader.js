@@ -14,48 +14,60 @@ const RestaurantHeader = ({ restaurantData }) => {
   } = restaurantData?.data?.cards[2]?.card?.card?.info;
 
   return (
-    <div className="restaurant-card">
-      <div className="restaurant-info">
-        <div className="restaurant-details">
-          <h1 className="restaurant-name">{name}</h1>
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="flex flex-col lg:flex-row">
+        {/* Restaurant Details */}
+        <div className="flex-1 p-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">{name}</h1>
 
-          <div className="restaurant-meta">
-            <div className="rating-badge">
-              <Star className="star-icon" />
-              <span className="rating-text">{avgRating}</span>
-              <span className="rating-count">({totalRatings})</span>
+          {/* Rating Section */}
+          <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-1 bg-green-50 text-green-700 px-3 py-1.5 rounded-full">
+              <Star className="w-4 h-4 fill-current" />
+              <span className="font-semibold text-sm">{avgRating}</span>
+            </div>
+            <span className="text-gray-500 text-sm">
+              ({totalRatings} ratings)
+            </span>
+          </div>
+
+          {/* Meta Information */}
+          <div className="space-y-3 mb-6">
+            <div className="flex items-center gap-3 text-gray-600">
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm">{city}</span>
             </div>
 
-            <div className="meta-item">
-              <MapPin className="meta-icon" />
-              <span>{city}</span>
+            <div className="flex items-center gap-3 text-gray-600">
+              <Users className="w-4 h-4" />
+              <span className="text-sm">{costForTwoMessage}</span>
             </div>
 
-            <div className="meta-item">
-              <Users className="meta-icon" />
-              <span>{costForTwoMessage}</span>
+            <div className="flex items-center gap-3 text-gray-600">
+              <Clock className="w-4 h-4" />
+              <span className="text-sm">30-40 mins delivery</span>
             </div>
           </div>
 
-          <div className="cuisine-container">
+          {/* Cuisines */}
+          <div className="flex flex-wrap gap-2">
             {cuisines.map((cuisine, index) => (
-              <span key={index} className="cuisine-tag">
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+              >
                 {cuisine}
               </span>
             ))}
           </div>
-
-          <div className="meta-item">
-            <Clock className="meta-icon" />
-            <span>30-40 mins delivery</span>
-          </div>
         </div>
 
-        <div className="restaurant-image-container">
+        {/* Restaurant Image */}
+        <div className="lg:w-80 lg:h-80 h-64 flex-shrink-0">
           <img
             src={CDN_URL + cloudinaryImageId}
-            alt="Restaurant"
-            className="restaurant-image"
+            alt={name}
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
