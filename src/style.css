@@ -20,11 +20,17 @@
   border: solid black 1px ;
 }
 
+.header-container a{
+   color: black; /* or any color you prefer */
+  text-decoration: none;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 
 .options-header {
     display: flex;
@@ -32,10 +38,7 @@
     padding: 10px 20px;  /* padding around the container */
     align-items: center;
 }
-.options-header a {
-  color: black; /* or any color you prefer */
-  text-decoration: none;
-}
+
 
 .options-header span {
     margin: 0 10px;
