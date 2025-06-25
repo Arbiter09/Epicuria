@@ -1,6 +1,6 @@
-# 🍽️ Restaurant Discovery App
+# 🍽️ Epicuria
 
-A modern React-based restaurant discovery application that helps users find and explore restaurants with detailed menus, ratings, and essential information. Built with React, React Router, and styled with Tailwind CSS for a sleek, responsive user experience.
+A modern React-based food ordering app that helps users find and explore restaurants with detailed menus, ratings, and essential information. Built with React, React Router, and styled with Tailwind CSS for a sleek, responsive user experience.
 
 ## 📋 Table of Contents
 
