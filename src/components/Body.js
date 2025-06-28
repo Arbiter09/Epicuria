@@ -18,7 +18,7 @@ const Body = () => {
   };
 
   const listOfRestaurants = useRestaurants();
-  console.log(listOfRestaurants);
+  //console.log(listOfRestaurants);
 
   useEffect(() => {
     setFilteredListOfRestaurants(listOfRestaurants);
