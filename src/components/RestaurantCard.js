@@ -1,15 +1,10 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants";
+import { Leaf } from "lucide-react";
 
 const RestaurantCard = ({ resData }) => {
-  const {
-    name,
-    cloudinaryImageId,
-    cuisines,
-    costForTwo,
-    avgRating,
-    deliveryTime,
-  } = resData?.info;
+  const { name, cloudinaryImageId, cuisines, costForTwo, avgRating, sla } =
+    resData?.info;
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-50">
@@ -68,13 +63,28 @@ const RestaurantCard = ({ resData }) => {
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span className="text-xs text-gray-500">{deliveryTime} min</span>
+              <span className="text-xs text-gray-500">
+                {sla.deliveryTime} min
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+export const withVegLabel = () => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-green-400 text-white z-1 p-2 m-2 rounded-3xl">
+          <Leaf />
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
