@@ -3,23 +3,9 @@ import { CDN_URL } from "../utils/constants";
 import FoodCard from "./FoodCard";
 import { useState } from "react";
 
-const RestaurantMenuItems = ({ itemCategory }) => {
-  const [showItems, setShowItems] = useState(false);
-
-  // const categories =
-  //   restaurantData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-  //     (newCard) => {
-  //       return (
-  //         newCard?.card?.card?.["@type"] ===
-  //         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  //       );
-  //     }
-  //   );
-
-  // console.log(categories);
-
+const RestaurantMenuItems = ({ itemCategory, showItems, setShowIndex }) => {
   const handleAccordian = () => {
-    setShowItems(!showItems);
+    setShowIndex();
   };
 
   if (itemCategory === undefined) return <h1>ERROR!</h1>;
@@ -38,7 +24,8 @@ const RestaurantMenuItems = ({ itemCategory }) => {
             <Award className="w-5 h-5 text-orange-600" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
-            {itemCategory?.card?.card?.title}
+            {itemCategory?.card?.card?.title} (
+            {itemCategory?.card?.card?.itemCards.length})
           </h2>
         </div>
         <div className="mt-2">

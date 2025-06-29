@@ -4,8 +4,11 @@ import RestaurantHeader from "./RestaurantHeader";
 import RestaurantMenuItems from "./RestaurantMenuItems";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantShimmer from "./RestaurantShimmer";
+import { useState } from "react";
 
 const RestaurantSection = () => {
+  const [showIndex, setShowIndex] = useState(null);
+
   const { resId } = useParams();
   const restaurantData = useRestaurantMenu(resId);
 
@@ -27,10 +30,16 @@ const RestaurantSection = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-8">
           <RestaurantHeader restaurantData={restaurantData} />
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             return (
               <div key={category?.card?.card?.categoryId}>
-                <RestaurantMenuItems itemCategory={category} />
+                <RestaurantMenuItems
+                  itemCategory={category}
+                  showItems={showIndex === index ? true : false}
+                  setShowIndex={() =>
+                    setShowIndex(showIndex === index ? null : index)
+                  }
+                />
               </div>
             );
           })}

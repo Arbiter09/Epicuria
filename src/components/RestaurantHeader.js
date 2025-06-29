@@ -11,6 +11,7 @@ const RestaurantHeader = ({ restaurantData }) => {
     cuisines,
     totalRatings,
     cloudinaryImageId,
+    sla,
   } = restaurantData?.data?.cards[2]?.card?.card?.info;
 
   return (
@@ -45,7 +46,7 @@ const RestaurantHeader = ({ restaurantData }) => {
 
             <div className="flex items-center gap-3 text-gray-600">
               <Clock className="w-4 h-4" />
-              <span className="text-sm">30-40 mins delivery</span>
+              <span className="text-sm">{sla.deliveryTime} mins delivery</span>
             </div>
           </div>
 

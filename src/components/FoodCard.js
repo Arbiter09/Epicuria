@@ -1,7 +1,12 @@
-import { Leaf } from "lucide-react";
+import { Leaf, Plus } from "lucide-react";
 import { CDN_URL } from "../utils/constants";
 
 const FoodCard = ({ itemCards }) => {
+  const handleAddItem = (item) => {
+    // Add your cart logic here
+    console.log("Adding item to cart:", item);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {itemCards.map((res) => {
@@ -40,13 +45,23 @@ const FoodCard = ({ itemCards }) => {
                 </div>
               </div>
 
-              {/* Item Image */}
-              <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
-                <img
-                  src={CDN_URL + item.imageId}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                />
+              {/* Item Image and Add Button */}
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 mb-3">
+                  <img
+                    src={CDN_URL + item.imageId}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Add Button */}
+                <button
+                  onClick={() => handleAddItem(item)}
+                  className="bg-white border-2 border-green-500 text-green-600 font-semibold px-4 py-1.5 rounded-md text-sm hover:bg-green-500 hover:text-white transition-colors duration-200 shadow-sm mt-2"
+                >
+                  ADD
+                </button>
               </div>
             </div>
           </div>
