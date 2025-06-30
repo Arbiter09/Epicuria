@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useRestaurants from "../utils/useRestaurants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Offline from "./Offline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
@@ -27,6 +28,8 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
 
   const RestaurantVeg = withVegLabel(RestaurantCard);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   if (!onlineStatus) {
     return <Offline />;
@@ -115,6 +118,12 @@ const Body = () => {
             >
               Clear
             </button>
+            <label> USERNAME: </label>
+            <input
+              className="border-2 p-2"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </div>
 
           {/* Results Count */}

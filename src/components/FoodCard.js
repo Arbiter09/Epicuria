@@ -1,10 +1,12 @@
 import { Leaf, Plus } from "lucide-react";
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../ReduxStore/cartSlice";
 
 const FoodCard = ({ itemCards }) => {
+  const dispatch = useDispatch();
   const handleAddItem = (item) => {
-    // Add your cart logic here
-    console.log("Adding item to cart:", item);
+    dispatch(addItem(item));
   };
 
   return (

@@ -1,9 +1,17 @@
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+
+  const cart = useSelector((store) => store.cart.cartItems);
+  console.log(cart);
+
+  const { loggedInUser } = useContext(UserContext);
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6">
@@ -56,9 +64,14 @@ const Header = () => {
             </div>
 
             {/* Cart - Minimal */}
-            <button className="text-gray-600 hover:text-gray-900 transition-colors">
-              🛒
-            </button>
+            <Link
+              to="/cart"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              🛒 ({cart.length})
+            </Link>
+
+            <span>{loggedInUser}</span>
           </nav>
         </div>
       </div>
