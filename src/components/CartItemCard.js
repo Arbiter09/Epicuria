@@ -1,7 +1,14 @@
-import { Minus, Plus, Trash2 } from "lucide-react";
+import React from "react";
+import { Plus, Minus, Trash2 } from "lucide-react";
 
-// Individual Item Card Component
-const CartItemCard = ({ item, quantity, onQuantityChange, onRemove }) => {
+const CartItemCard = ({
+  item,
+  quantity,
+  onQuantityChange,
+  onRemove,
+  onIncrement,
+  onDecrement,
+}) => {
   const formatPrice = (price) => {
     return `₹${(price / 100).toFixed(2)}`;
   };
@@ -17,6 +24,8 @@ const CartItemCard = ({ item, quantity, onQuantityChange, onRemove }) => {
       </div>
     );
   };
+
+  const itemPrice = item.price ? item.price : item.defaultPrice;
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4 mb-4 border border-gray-200">
@@ -52,7 +61,7 @@ const CartItemCard = ({ item, quantity, onQuantityChange, onRemove }) => {
               )}
 
               <p className="text-sm font-bold text-gray-900">
-                {formatPrice(item.price)}
+                {formatPrice(itemPrice)}
               </p>
 
               {item.description && (
@@ -74,6 +83,7 @@ const CartItemCard = ({ item, quantity, onQuantityChange, onRemove }) => {
           {/* Quantity Controls */}
           <div className="flex items-center justify-between mt-3">
             <div className="flex items-center gap-2">
+              {/* Method 1: Using onQuantityChange */}
               <button
                 onClick={() =>
                   onQuantityChange(item.id, Math.max(0, quantity - 1))
@@ -82,20 +92,41 @@ const CartItemCard = ({ item, quantity, onQuantityChange, onRemove }) => {
               >
                 <Minus size={14} />
               </button>
+
+              {/* Method 2: Using onDecrement (alternative)
+              <button
+                onClick={() => onDecrement(item.id)}
+                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+              >
+                <Minus size={14} />
+              </button>
+              */}
+
               <span className="font-semibold text-gray-800 min-w-[20px] text-center">
                 {quantity}
               </span>
+
+              {/* Method 1: Using onQuantityChange */}
               <button
                 onClick={() => onQuantityChange(item.id, quantity + 1)}
                 className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
               >
                 <Plus size={14} />
               </button>
+
+              {/* Method 2: Using onIncrement (alternative)
+              <button
+                onClick={() => onIncrement(item.id)}
+                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+              >
+                <Plus size={14} />
+              </button>
+              */}
             </div>
 
             <div className="text-right">
               <p className="font-bold text-gray-900">
-                {formatPrice(item.price * 1)}
+                {formatPrice(itemPrice * quantity)}
               </p>
             </div>
           </div>

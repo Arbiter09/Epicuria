@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Plus, Minus, Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItemCard from "./CartItemCard";
-import { clearCart, removeItem } from "../ReduxStore/cartSlice";
+import {
+  clearCart,
+  removeItem,
+  updateQuantity,
+  incrementQuantity,
+  decrementQuantity,
+} from "../ReduxStore/cartSlice";
 
 // Main Cart Component
 const Cart = () => {
@@ -13,20 +19,33 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  // Method 1: Using updateQuantity action
   const handleQuantityChange = (itemId, newQuantity) => {
-    // Logic to handle Quantity Change
+    dispatch(updateQuantity({ id: itemId, quantity: newQuantity }));
+  };
+
+  // Method 2: Using increment/decrement actions (alternative approach)
+  const handleIncrement = (itemId) => {
+    dispatch(incrementQuantity(itemId));
+  };
+
+  const handleDecrement = (itemId) => {
+    dispatch(decrementQuantity(itemId));
   };
 
   const handleRemoveItem = (item) => {
-    // Logic to Remove Item
     dispatch(removeItem(item));
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce(
-      (total, item) => total + (item.price ? item.price : item.defaultPrice),
-      0
-    );
+    return cartItems.reduce((total, item) => {
+      const price = item.price ? item.price : item.defaultPrice;
+      return total + price * item.quantity;
+    }, 0);
+  };
+
+  const getTotalItemCount = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
   const formatPrice = (price) => {
@@ -57,6 +76,9 @@ const Cart = () => {
             quantity={item.quantity}
             onQuantityChange={handleQuantityChange}
             onRemove={handleRemoveItem}
+            // Alternative: pass increment/decrement handlers
+            onIncrement={handleIncrement}
+            onDecrement={handleDecrement}
           />
         ))}
       </div>
@@ -68,7 +90,7 @@ const Cart = () => {
             Total Items:
           </span>
           <span className="text-lg font-semibold text-gray-800">
-            {cartItems.length}
+            {getTotalItemCount()}
           </span>
         </div>
 
@@ -84,7 +106,7 @@ const Cart = () => {
         </button>
         <button
           onClick={handleClearCart}
-          className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors mt-2"
+          className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors mt-2"
         >
           Clear Cart
         </button>
