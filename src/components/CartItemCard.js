@@ -28,7 +28,10 @@ const CartItemCard = ({
   const itemPrice = item.price ? item.price : item.defaultPrice;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4 border border-gray-200">
+    <div
+      data-testid="cartItem"
+      className="bg-white rounded-lg shadow-md p-4 mb-4 border border-gray-200"
+    >
       <div className="flex gap-4">
         {/* Item Image */}
         <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0 overflow-hidden">

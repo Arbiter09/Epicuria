@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.27.1",

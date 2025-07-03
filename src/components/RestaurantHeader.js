@@ -15,7 +15,10 @@ const RestaurantHeader = ({ restaurantData }) => {
   } = restaurantData?.data?.cards[2]?.card?.card?.info;
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div
+      data-testid="header"
+      className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+    >
       <div className="flex flex-col lg:flex-row">
         {/* Restaurant Details */}
         <div className="flex-1 p-8">

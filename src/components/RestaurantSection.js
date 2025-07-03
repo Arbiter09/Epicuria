@@ -22,7 +22,7 @@ const RestaurantSection = () => {
       }
     );
 
-  console.log(categories);
+  // console.log(categories);
   if (restaurantData === null) return <RestaurantShimmer />;
 
   return (

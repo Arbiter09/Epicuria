@@ -16,6 +16,7 @@ const RestaurantMenuItems = ({ itemCategory, showItems, setShowIndex }) => {
       className="max-w-6xl mx-auto p-3"
     >
       <div
+        data-testid="accordianHeader"
         onClick={handleAccordian}
         className="flex justify-between border-gray-300 border-b-2 cursor-pointer mb-2"
       >

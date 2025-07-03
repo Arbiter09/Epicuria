@@ -17,6 +17,7 @@ const FoodCard = ({ itemCards }) => {
 
         return (
           <div
+            data-testid="foodCard"
             key={item.id}
             className="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-shadow duration-200"
           >
@@ -59,6 +60,7 @@ const FoodCard = ({ itemCards }) => {
 
                 {/* Add Button */}
                 <button
+                  data-testid="addBtn"
                   onClick={() => handleAddItem(item)}
                   className="bg-white border-2 border-green-500 text-green-600 font-semibold px-4 py-1.5 rounded-md text-sm hover:bg-green-500 hover:text-white transition-colors duration-200 shadow-sm mt-2"
                 >

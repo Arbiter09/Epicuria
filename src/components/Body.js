@@ -61,6 +61,7 @@ const Body = () => {
                 />
               </svg>
               <input
+                data-testid="searchInput"
                 className="flex-1 outline-none text-gray-700 placeholder-gray-400 text-sm"
                 placeholder="Search restaurants..."
                 value={searchText}
@@ -77,6 +78,7 @@ const Body = () => {
                 }}
               />
               <button
+                data-testid="searchBtn"
                 className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
                 onClick={() => {
                   const filteredList = listOfRestaurants.filter((res) =>
@@ -105,6 +107,7 @@ const Body = () => {
 
             {/* Filter Button */}
             <button
+              data-testid="topRated"
               className="px-6 py-3 bg-white text-gray-600 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm whitespace-nowrap"
               onClick={() => handleTopRestaurants()}
             >

@@ -9,7 +9,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const cart = useSelector((store) => store.cart.cartItems);
-  console.log(cart);
+  //console.log(cart);
 
   const { loggedInUser } = useContext(UserContext);
   return (

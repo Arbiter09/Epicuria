@@ -3,11 +3,15 @@ import { CDN_URL } from "../utils/constants";
 import { Leaf } from "lucide-react";
 
 const RestaurantCard = ({ resData }) => {
+  //console.log(resData);
   const { name, cloudinaryImageId, cuisines, costForTwo, avgRating, sla } =
     resData?.info;
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-50">
+    <div
+      data-testid="resCard"
+      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-50"
+    >
       {/* Image Container */}
       <div className="relative overflow-hidden">
         <img
@@ -78,7 +82,10 @@ export const withVegLabel = () => {
   return (props) => {
     return (
       <div>
-        <label className="absolute bg-green-400 text-white z-1 p-2 m-2 rounded-3xl">
+        <label
+          data-testid="vegLabel"
+          className="absolute bg-green-400 text-white z-1 p-2 m-2 rounded-3xl"
+        >
           <Leaf />
         </label>
         <RestaurantCard {...props} />
